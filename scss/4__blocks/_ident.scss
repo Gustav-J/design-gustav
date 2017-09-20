@@ -1,0 +1,19 @@
+.ident {
+
+  polygon, path {
+    fill: $_white;
+  }
+
+  .line {
+    animation: logo-symbol 1000ms ease forwards;
+    transform-origin: center center;
+  }
+}
+
+@keyframes logo-symbol {
+  0% { transform: scale(0);
+  }
+
+  100% { transform: scale(1);
+  }
+}

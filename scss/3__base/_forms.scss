@@ -1,0 +1,167 @@
+// Labels
+label, .label {
+	display: block;
+	cursor: pointer;
+
+	&--button {
+		display: inline-block;
+	}
+
+}
+
+// Inputs and textareas
+input,
+textarea {
+    /* To get your input fields to render consistently across all browsers, you need to use both height and line-height, and avoid vertical padding. */
+		background: $_white;
+		line-height: 42px;
+		height: 44px;
+		width: auto;
+		color: $_black;
+		border-radius: $border-radius;
+    padding: 0 18px;
+    display: block;
+    border: none;
+    width: 100%;
+    text-align: left;
+		border: 1px solid $_gray;
+
+    &:disabled {
+        border: none;
+    }
+
+		&:focus {
+			border: 1px solid $_gray--dark;
+			outline: 0;
+		}
+
+}
+
+textarea {
+  line-height: normal;
+  padding-top: $spacing--small;
+}
+
+// Checkboxes and radiobuttons
+label input[type='checkbox']:first-child,
+label input[type='radio']:first-child {
+    display: inline-block;
+    margin-right: spacing(small);
+}
+
+// Buttons
+button {
+
+    &:focus,
+    &:hover {
+
+    }
+
+    &:disabled {
+
+    }
+}
+
+// Select fields
+select {
+    display: block;
+}
+
+// Fieldsets and legends
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 spacing(medium);
+}
+
+input[type=text], input[type=number] {
+  /*border: 2px solid $_gray--light;*/
+  width: 100%;
+}
+
+
+.range {
+	input[type=text], input[type=number] {
+	  @extend .h4;
+	  /*border: 2px solid $_gray--light;*/
+	  text-align: right;
+	}
+}
+
+.form {
+
+		&-split {
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 1px;
+				padding: 0 0 100% 0;
+				background: $_gray;
+				display: none;
+
+				@include query-min($screen-lg) {
+					display: block;
+				}
+			}
+
+			&__half {
+				padding: 0;
+				margin-bottom: $spacing;
+
+				@include query-min($screen-lg) {
+					margin-bottom: 0;
+					padding: 0 $spacing;
+				}
+			}
+		}
+
+    &__half {
+      width: 100%;
+      display: block;
+
+        @include query-min($screen-md) {
+          padding-right: $spacing--small;
+          padding-left: 0;
+          width: 50%;
+          display: inline-block;
+        }
+
+      &--last {
+        @include query-min($screen-md) {
+          padding-left: $spacing--small;
+          padding-right: 0;
+          width: 50%;
+          display: inline-block;
+        }
+      }
+    }
+
+		&-field {
+			display: block;
+			margin-bottom: $spacing--medium;
+
+
+
+			&__title {
+				@extend .h2;
+				margin-bottom: $spacing--small;
+				@include query-min($screen-lg) {
+					margin-bottom: $spacing;
+				}
+			}
+
+		&__label {
+			@extend .h4;
+			font-size: 16px;
+			@include query-min($screen-lg) {
+				font-size: 18px;
+			}
+		}
+	}
+}

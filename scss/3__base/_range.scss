@@ -1,0 +1,240 @@
+// Styling Cross-Browser Compatible Range Inputs with Sass
+// Github: https://github.com/darlanrod/input-range-sass
+// Author: Darlan Rod https://github.com/darlanrod
+// Version 1.0.1
+// MIT License
+
+$track-color: $_gray--light;
+$thumb-color: $_black;
+
+$thumb-radius: 24px;
+$thumb-height: 24px;
+$thumb-width: 24px;
+$thumb-shadow-size: 0px;
+$thumb-shadow-blur: 0px;
+$thumb-shadow-color: #111;
+$thumb-border-width: 0px;
+$thumb-border-color: #fff;
+
+$track-width: 100%;
+$track-height: 4px;
+$track-shadow-size: 0px;
+$track-shadow-blur: 0px;
+$track-shadow-color: $_gray--light;
+$track-border-width: 0px;
+$track-border-color: #000;
+
+$track-radius: 5px;
+$contrast: 0%;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track() {
+  width: $track-width;
+  height: $track-height;
+  cursor: pointer;
+  transition: all .2s ease;
+
+}
+
+@mixin thumb() {
+  height: $thumb-height;
+  width: $thumb-width;
+  border-radius: $thumb-radius;
+  background: $thumb-color;
+  cursor: pointer;
+}
+
+[type=range] {
+  -webkit-appearance: none;
+  margin: $thumb-height / 2 0;
+  width: $track-width;
+  background: transparent;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.webkit-track {
+    border-radius: $track-radius;
+    -webkit-appearance: none;
+    height: 4px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 14px;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track();
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+    background: transparent;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb();
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    margin-top: -14px;
+
+    @include query-min($screen-md) {
+      @include thumb();
+        margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+
+  	   }
+
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: transparent;
+  }
+
+}
+
+
+.range {
+  position: relative;
+  display: block;
+  margin-left: - $gutter/2;
+  margin-right: - $gutter/2;
+  margin-bottom: 32px;
+  opacity: 0;
+  -webkit-animation: load 0.15s ease-in forwards;
+          animation: load 0.15s ease-in forwards;
+
+  @extend .clearfix;
+
+	@include query-min($screen-md) {
+
+	  margin-bottom: 24px;
+
+ 	}
+
+  &:nth-child(1){ -webkit-animation-delay: 0.15s }
+  &:nth-child(2){ -webkit-animation-delay: 0.30s }
+  &:nth-child(3){ -webkit-animation-delay: 0.45s }
+  &:nth-child(4){ -webkit-animation-delay: 0.60s }
+  &:nth-child(5){ -webkit-animation-delay: 0.75s }
+  &:nth-child(6){ -webkit-animation-delay: 0.90s }
+
+  &__label {
+    @extend .col-7;
+    @extend .col-12--md;
+    @extend .h5;
+    font-weight: normal;
+  	margin-top: 8px;
+
+  	@include query-min($screen-md) {
+  	    margin-top: 0px;
+  	}
+
+  }
+
+  &__slider {
+    @extend .col-12;
+    @extend .col-9--md;
+    margin-top: 5px;
+    padding-left: 56px;
+    padding-right: 56px;
+
+	@include query-min($screen-md) {
+	    margin-top: 5px;
+	   }
+
+  }
+
+  &__summary {
+    float: right;
+    @extend .col-5;
+    @extend .col-3--md;
+
+    input {
+      background: transparent;
+      padding-right: 28px;
+      }
+
+    @include query-min($screen-md) {
+      input {
+        background: $_white;
+        padding-right: 40px;
+        }
+  	   }
+
+    &__unit {
+	    position: absolute;
+	    right: 10px;
+	    margin-top: 9px;
+      top: 0;
+	    @extend .h4;
+	    background: transparent;
+
+      @include query-min($screen-md) {
+        right: 22px;
+         }
+
+
+    }
+
+  }
+
+  &__amount {
+    margin-top: -5px;
+    width: 100%;
+
+    &__wunit {
+	    padding-right: 40px;
+      color: $_black;
+      line-height: normal;
+    }
+  }
+
+  &__trigger {
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    @extend .h4;
+    display: block;
+    color: $_black;
+    border: 2px solid $_gray--light;
+    background: transparent;
+    position: absolute;
+    left: 12px;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0;
+
+	&:hover {
+    border: 2px solid $_gray--light;
+    background: transparent;
+	}
+
+
+    &:active, &:focus {
+      border: 2px solid $_black;
+      background: transparent;
+    }
+
+    &--right {
+      right: 12px;
+      left: auto;
+    }
+
+  }
+
+}
+
+@-webkit-keyframes load {
+    0% {
+	    opacity: 0;
+	    }
+
+    100% {
+	    opacity: 1.0;
+	    }
+}

@@ -1,0 +1,70 @@
+.tabs {
+	display: block;
+	white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+	padding: 0 $spacing--small;
+
+	@include query-min($screen-lg) {
+	}
+
+	&::-webkit-scrollbar {
+		width: 0 !important;
+		display: none;
+		background: transparent; /* make scrollbar transparent */
+	}
+
+  &__wrapper {
+    @extend .wrapper;
+    padding-right: 0;
+  }
+
+	&__item {
+		width: auto;
+		display: inline-block;
+	}
+
+	&__link {
+		display: inline-block;
+		padding: $spacing--small  $spacing--medium;
+
+    @include query-min($screen-md) {
+      padding: $spacing--medium;
+    }
+
+		@include query-min($screen-lg) {
+			padding: $spacing;
+		}
+
+		&--current {
+			border-bottom: 4px solid $_blue;
+			text-decoration: none;
+		}
+
+    &--disabled {
+			color: $_gray;
+      text-decoration: none;
+
+      .icon {
+        stroke: $_gray;
+      }
+		}
+
+
+	}
+
+	/*&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: $spacing;
+		background: linear-gradient(to right, rgba($_gray--lighter, 0) 0%, rgba($_gray--lighter, 1) 90%);
+		display: block;
+		bottom: 0;
+		width: 80px;
+		@include query-min($screen-lg) {
+			right: 0;
+		}
+	}*/
+}

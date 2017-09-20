@@ -1,0 +1,8 @@
+// Centered page container element
+.grid {
+    @extend .clearfix;
+    max-width: $grid-width;
+    margin: 0 auto;
+    margin-left: - ($gutter/2);
+    margin-right: - ($gutter/2);
+}

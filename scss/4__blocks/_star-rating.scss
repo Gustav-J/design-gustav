@@ -1,0 +1,13 @@
+.star-rating {
+  display: block;
+
+  &__star {
+    display: inline-block;
+    border-radius: $border-radius;
+    background: $_gray--dark;
+    stroke: $_white;
+    padding: $spacing--xsmall;
+    width: 32px;
+    height: 32px;
+  }
+}

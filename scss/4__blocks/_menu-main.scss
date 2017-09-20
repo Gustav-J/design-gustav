@@ -1,0 +1,61 @@
+.menu-main {
+	display: none;
+
+	@include query-min($screen-lg) {
+		display: block;
+	}
+
+	&__item {
+		width: 100%;
+		padding: 0;
+		@extend .h2;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:nth-last-child(2) {
+			margin-top: $spacing--large;
+		}
+
+		@include query-min($screen-lg) {
+			width: auto;
+			display: inline-block;
+			margin-right: $spacing;
+			font-size: 18px;
+
+			&:nth-last-child(2) {
+				margin-top: 0;
+			}
+		}
+
+	}
+
+	&__link {
+		color: $_white;
+		text-decoration: none;
+    position: relative;
+
+		&:hover, &:active {
+			text-decoration: underline;
+		}
+
+		&--current {
+
+		}
+	}
+
+	.button {
+		color: $_white;
+		font-size: 16px;
+
+		@include query-min($screen-lg) {
+			font-size: 18px;
+		}
+	}
+
+	&--active {
+
+	}
+
+}

@@ -1,0 +1,102 @@
+h1, .h1 {
+	font-family: $sans;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 40px;
+	margin-bottom: $spacing;
+	@include query-min($screen-lg) {
+		font-size: 52px;
+		line-height: 62px;
+	}
+}
+
+h2, .h2, .preamble {
+	font-family: $sans--medium;
+	font-weight: normal;
+	font-size: 22px;
+	line-height: 30px;
+	margin-bottom: $spacing--xxsmall;
+	@include query-min($screen-lg) {
+		font-size: 30px;
+		line-height: 40px;
+	}
+}
+
+h3, .h3 {
+	font-family: $sans--medium;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: $spacing--xsmall;
+	@include query-min($screen-lg) {
+		font-size: 22px;
+		line-height: 30px;
+	}
+}
+
+h4, .h4 {
+	font-family: $sans;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: $spacing--xsmall;
+}
+
+h5, .h5 {
+	font-family: $sans;
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: $spacing--xsmall;
+	font-weight: normal;
+}
+
+h6, .h6 {
+	font-family: $sans--medium;
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: $spacing--xsmall;
+}
+
+.intro {
+	font-family: $sans;
+}
+
+.small {
+	font-family: $sans;
+}
+
+.regular {
+	font-family: $sans;
+}
+
+p,
+.normal {
+	font-family: $sans;
+	margin-bottom: $spacing--small;
+
+	font-size: 16px;
+	line-height: 24px;
+	@include query-min($screen-md) {
+		font-size: 18px;
+		line-height: 26px;
+	}
+
+	strong {
+		font-family: $sans--bold;
+	}
+}
+
+a, .a {
+	font-family: $sans;
+	color: $color-links;
+	text-decoration: underline;
+
+	&:hover,
+	&--hover {
+		text-decoration: none;
+	}
+
+	&:focus,
+	&--focus {
+	}
+}

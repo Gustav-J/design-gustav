@@ -1,0 +1,175 @@
+/* ------------------------------------*\
+#MIXINS
+\*------------------------------------ */
+/* *
+* Some nice mixins we can use to make our lives easier. Feel free to add as
+* many as you like! */
+
+
+
+//  MEDIA QUERIES (Includes fix for < IE9)
+//  --------------------------------------------------------
+
+$fix-mqs: false !default;
+
+@mixin query-min($width) {
+
+    @if $fix-mqs {
+        @if $fix-mqs >= $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin query-max($width) {
+    @if $fix-mqs {
+        @if $fix-mqs <= $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+$old-ie: false !default;
+
+@mixin old-ie {
+    @if $old-ie {
+        @content;
+    }
+}
+
+
+
+//  STYLE INPUT PLACEHOLDERS
+//  ---------------------------------------------------------------------------------------
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+//  SPRITE ICONS
+//  ---------------------------------------------------------------------------------------
+@mixin sprite($x,$y) {
+    background-image: url('../graphics/png/sprite.png');
+    background-image: none, url('../graphics/svg/sprite.svg');
+    background-position: ($x*-30px) ($y*-30px);
+    background-repeat: no-repeat;
+}
+
+
+
+// Fallback if nothing is set in variables
+$breakpoints: (
+  small: 480,
+  medium: 720,
+  large: 960,
+) !default;
+
+@mixin breakpoint($label, $max:null) {
+  @if map-has-key($breakpoints, $label) {
+    $width: map-get($breakpoints, $label);
+    @if $max != null {
+      @media (max-width: rem-calc($width)) {
+        @content;
+      }
+    }
+    @else {
+      @media (min-width: rem-calc($width)) {
+        @content;
+      }
+    }
+  }
+  @elseif type-of($label) == 'number' {
+    @if $max != null {
+      @media screen and (max-width: rem-calc($label)) {
+        @content;
+      }
+    }
+    @else {
+      @media screen and (min-width: rem-calc($label)) {
+        @content;
+      }
+    }
+  }
+  @else {
+    @warn "`#{$label} is not a valid key in `#{$breakpoints}`. ";
+  }
+}
+// Hva gjør denne?
+@mixin bp($label, $max:null) {
+  @if mixin-exists(breakpoint) {
+    @include breakpoint($label, $max) {
+      @content;
+    }
+  }
+  @else {
+    @warn "`#{$label}` is not a valid key in `$breakpoints`.";
+  }
+}
+
+
+// ------------------------------------
+// Header Sizes
+// ------------------------------------
+
+@mixin font-sizes {
+  @each $size, $headers in $font-sizes {
+    @if $size == 'base' {
+      @each $header, $font-size in $headers {
+        #{$header}, .#{$header} {
+          @include make-font-size($font-size);
+        }
+      }
+    }
+    @else {
+      @include breakpoint($size) {
+        @each $header, $font-size in $headers {
+          #{$header}, .#{$header} {
+            @include make-font-size($font-size);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Utility function for mixin font-size
+@mixin make-font-size($font-size) {
+  // If $fs-font-size is a list, include
+  // both font-size and line-height
+  @if type-of($font-size) == "list" {
+    font-size: #{nth($font-size, 1)/16}rem;
+    @if (length($font-size) > 1) {
+      line-height: nth($font-size, 2);
+    }
+  }
+  @else {
+    font-size: rem-calc($font-size);
+  }
+}
+
+// ------------------------------------
+// Button
+// ------------------------------------
+
+// To set button color, background and hover
+@mixin button-color($bg-color, $color:null) {
+  background: $bg-color;
+  color: $color;
+  &:hover {
+    background: darken($bg-color, 10%);
+  }
+}

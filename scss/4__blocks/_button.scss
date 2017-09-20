@@ -1,0 +1,97 @@
+.button {
+	border: 0;
+	outline: 0;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	background: $_gray--light;
+	line-height: 42px;
+	height: 44px;
+	width: auto;
+	color: $_black;
+	border-radius: $border-radius;
+	padding-left: 24px;
+	padding-right: 24px;
+	text-decoration: none;
+	transition: all 100ms ease-in;
+
+	&:hover {
+		transform: scale(1.03);
+	}
+
+
+	&--big {
+		@extend .h4;
+		font-family: $sans;
+
+		@include query-min($screen-lg) {
+			line-height: 56px;
+			height: 60px;
+			padding-left: $spacing--large;
+			padding-right: $spacing--large;
+			font-size: 22px;
+		}
+	}
+
+	&--primary {
+    background: linear-gradient(160deg, #fd2a89 0%, #e93e3a 100%);
+    background: linear-gradient(160deg, #00cefa 0%, #6376ff 100%);
+		color: $_white;
+	}
+
+	&--secondary {
+		color: $_gray--dark;
+		}
+
+	&--outline {
+		border: 1px solid $_gray;
+		background: transparent;
+	}
+
+	&--outline-w {
+		border: 1px solid $_white;
+		background: transparent;
+	}
+
+	&--dark {
+		background-color: $_gray--dark;
+		color: $_white;
+	}
+
+	&--facebook {
+		background-color: #3b5998;
+		color: $_white;
+	}
+
+	&--google {
+		background-color: #db3236;
+		color: $_white;
+	}
+
+	&--block {
+		display: block;
+		width: 100%;
+	}
+
+	.icon {
+		top: 4px;
+		@include query-min($screen-lg) {
+			top: 6px;
+		}
+	}
+
+	&-toolbar {
+
+		.button {
+			margin-top: 0;
+
+			+ .button {
+				margin-top: $spacing--small;
+
+			}
+
+		}
+
+	}
+
+}

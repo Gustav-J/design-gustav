@@ -1,0 +1,75 @@
+.category {
+	float: left;
+	width: 100%;
+	border-top: 2px solid $_gray--light;
+	position: relative;
+
+	&:first-child {
+		border-top: 0px;
+	}
+
+	&__head {
+		float: left;
+		width: 100%;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		cursor: pointer;
+
+		&:after {
+			content:"";
+			position: absolute;
+			right: 0px;
+			top: 32px;
+			transition: all 0.4s;
+			width: 24px;
+			height: 24px;
+			background: url("../images/arrow.svg") center center no-repeat;
+		}
+
+		&.active {
+
+			&:after {
+				transform: rotate(90deg);
+			}
+
+		}
+
+	}
+
+	&__title {
+		float: right;
+		color: $_black;
+		width: 100%;
+		padding-left: 48px;
+		position: absolute;
+
+		.outputSize {
+			color: $_red;
+			text-decoration: blink;
+		}
+
+	}
+
+	&__image {
+		float: left;
+		max-width: 32px;
+		margin-left: 0px;
+
+
+		&--large {
+			max-width: 200px;
+		}
+
+	}
+
+
+	&__content {
+		float: left;
+		width: 100%;
+		margin-bottom: 48px;
+		padding-top: 24px;
+		display: none;
+	}
+
+
+}

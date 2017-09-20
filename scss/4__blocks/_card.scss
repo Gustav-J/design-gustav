@@ -1,0 +1,214 @@
+.card {
+	position: relative;
+	width: 100%;
+	background-color: $_white;
+
+	@include query-min($screen-lg) {
+		width: calc(50% - 20px);
+		margin-left: $spacing--small;
+		margin-right: $spacing--small;
+	}
+
+	@include query-min($screen-xl) {
+		width: calc(33.33% - 20px);
+	}
+
+	&-container {
+		display: flex;
+	  align-items: stretch;
+	  flex-wrap: wrap;
+
+		.card {
+			margin-bottom: $spacing;
+		}
+	}
+
+	&--light {
+		background-color: $_gray--lighter;
+	}
+
+	&--outline {
+		border: 2px solid $_gray--light;
+	}
+
+  &--locked {
+    position: relative;
+    margin-top: $spacing;
+    margin-bottom: $spacing--large;
+    z-index: 1;
+    float: left;
+    @include query-min($screen-lg) {
+      margin-top: $spacing--large;
+    }
+  }
+
+	&__header {
+		float: left;
+		width: 100%;
+	}
+
+	&__tags {
+		position: absolute;
+		top: $spacing;
+		left: $spacing;
+
+    &--inline {
+      position: relative;
+      display: block;
+      top: auto;
+      left: auto;
+      margin-bottom: $spacing--xsmall;
+      @include query-min($screen-lg) {
+        margin-bottom: $spacing--small;
+      }
+    }
+
+		&-tag {
+			display: inline-block;
+			margin-right: $spacing--xsmall;
+			@extend .h6;
+
+      &__link {
+        text-decoration: none;
+        display: block;
+  			background: $_gray--light;
+  			padding: $spacing--xxsmall  $spacing--medium;
+  			border-radius: 3px;
+  			color: $_gray--dark;
+
+        &--outline-w {
+          background: transparent;
+          border: 1px solid $_gray;
+          color: $_gray--light;
+        }
+        @include query-min($screen-xl) {
+          padding: $spacing--xsmall  $spacing;
+        }
+      }
+		}
+	}
+
+	&__status-bar {
+		display: inline-block;
+		width: 100%;
+		height: 14px;
+		background-color: $_gray--light;
+		position: relative;
+    z-index: 1;
+
+		&__tooltip {
+			@extend .tooltip;
+			animation: tooltip_build 1s ease-out forwards;
+			animation-delay: 2s;
+			opacity: 0;
+      text-align: center;
+      @extend .h5;
+		}
+
+		&__sofar {
+			background: linear-gradient(160deg, #fd2a89 0%, #e93e3a 100%);
+      background: linear-gradient(160deg, #a1d72a 0%, #61cd66 100%);
+			height: 14px;
+			top: 0;
+			position: absolute;
+			transform-origin: center left;
+			animation: bar_grow 1s ease-out forwards;
+
+			&--next {
+				background: linear-gradient(160deg, rgba(#a1d72a, 0.5) 0%, rgba(#61cd66, 0.5) 100%);
+				animation: bar_grow 1s ease-out forwards;
+				animation-delay: 1s;
+				opacity: 0;
+			}
+
+			&--completed {
+				background: linear-gradient(160deg, #a1d72a 0%, #61cd66 100%);
+			}
+		}
+
+	  .card__status-bar__sofar + .card__status-bar__sofar {
+			 border-left: 1px solid $_gray--light;
+		}
+	}
+
+	&__item {
+		width: 50%;
+		float: left;
+		margin-top: $spacing--medium;
+
+		&--full {
+			width: 100%;
+		}
+
+		&-title {
+			@extend .h5;
+		}
+
+		&-meta {
+			white-space: nowrap;
+			@extend .h3;
+
+			span {
+				margin-left: $spacing--small;
+			}
+			img {
+				position: relative;
+				top: 3px;
+				margin-right: $spacing--xsmall;
+			}
+		}
+
+		&-description {
+			@extend .h3;
+			font-family: $sans--medium;
+
+			&--large {
+				@extend .h1;
+				margin: 0;
+
+			}
+
+			img {
+				position: relative;
+				top: 3px;
+				margin-right: $spacing--xsmall;
+			}
+		}
+	}
+
+
+	&__image {
+		float: left;
+		max-width: 32px;
+		margin-left: 0px;
+
+
+		&--large {
+			max-width: 200px;
+		}
+
+	}
+
+  &__title {
+    margin-bottom: $spacing;
+  }
+
+	&__content {
+		float: left;
+		width: 100%;
+		padding: $spacing;
+	}
+
+	&__footer {
+		float: left;
+		width: 100%;
+		padding: 0 $spacing $spacing $spacing;
+
+		.button {
+			margin-bottom: $spacing--small;
+		}
+
+	}
+
+
+}

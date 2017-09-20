@@ -1,0 +1,170 @@
+header, .header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	padding: $spacing;
+	z-index: 7;
+
+	@include query-min($screen-lg) {
+		padding: $spacing + $spacing--small;
+	}
+
+	&__ident {
+		position: relative;
+		margin-top: 7px;
+		display: inline-block;
+		width: 120px;
+		z-index: 7;
+
+
+		@include query-min($screen-md) {
+			width: 140px;
+			margin-top: 5px;
+		}
+
+		@include query-min($screen-lg) {
+			width: 160px;
+		}
+	}
+
+  &__notifications-trigger {
+    position: absolute;
+    right: $spacing--xxlarge + $spacing--medium;
+    top: $spacing;
+    padding: $spacing--xsmall  0  $spacing--xsmall  $spacing--large;
+    color: $_white;
+
+    @include query-min($screen-md) {
+      right: $spacing--xxxlarge - $spacing--small;
+		}
+
+    @include query-min($screen-lg) {
+      display: none;
+    }
+
+  }
+
+	&__menu {
+		float: right;
+		position: relative;
+
+		&.is-active {
+			position: absolute;
+			float: none;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 100vh;
+			display: block;
+			background: rgba($_gray--dark, 0.95);
+			animation: fade-in 200ms forwards;
+
+			.menu-main {
+				display: block;
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				transform: translateY(-50%);
+
+				&__item {
+					margin-bottom: $spacing--small;
+					animation: fade-in 500ms forwards;
+					opacity: 0;
+
+					&:nth-child(1) {
+						animation-delay: 100ms;
+					}
+					&:nth-child(2) {
+						animation-delay: 200ms;
+					}
+					&:nth-child(3) {
+						animation-delay: 300ms;
+					}
+					&:nth-child(4) {
+						animation-delay: 400ms;
+					}
+					&:nth-child(5) {
+						animation-delay: 500ms;
+					}
+					&:nth-child(6) {
+						animation-delay: 600ms;
+					}
+				}
+
+			}
+
+		}
+
+		&-trigger {
+			position: absolute;
+			right: $spacing--medium;
+			top: $spacing;
+			color: $_white;
+			padding: $spacing--xsmall  0  $spacing--xsmall  $spacing;
+			text-decoration: none;
+			white-space: nowrap;
+			z-index: 7;
+
+			@include query-min($screen-lg) {
+				display: none!important;
+			}
+
+			.svg {
+				position: absolute!important;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				@extend .icon;
+
+				line {
+					transform-origin: center center;
+					transition: all 200ms ease;
+
+					&:nth-child(1) {
+					}
+					&:nth-child(2) {
+					}
+					&:nth-child(3) {
+					}
+				}
+
+			}
+
+			&.is-active {
+				display: block!important;
+
+				.icon {
+
+					line {
+
+						&:nth-child(1) {
+							opacity: 0;
+						}
+						&:nth-child(2) {
+							transform: rotate(45deg) translate(4px, 4px);
+						}
+						&:nth-child(3) {
+							transform: rotate(-45deg) translate(4px, -5px);
+						}
+					}
+
+				}
+
+			}
+		}
+	}
+
+	&--light {
+
+		.ident {
+			polygon, path {
+				fill: $_white;
+			}
+		}
+
+	}
+
+}

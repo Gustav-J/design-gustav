@@ -1,0 +1,109 @@
+.dialog {
+	position: fixed;
+	background: $_gray--light;
+	border-radius: 0px;
+  padding: $spacing--large  $spacing--medium  $spacing--large;
+	box-sizing: border-box;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	box-shadow: 0 0 140px rgba($_black, 0.25);
+  animation: fadeIn 300ms ease-out forwards;
+  display: none;
+  overflow-y: auto;
+
+	@include query-min($screen-md) {
+    padding: $spacing--large  $spacing  $spacing--large;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		max-width: 480px;
+		width: 80%;
+    max-height: 90%;
+    bottom: auto;
+    right: auto;
+    animation: fadeIn 300ms ease-out forwards;
+    overflow-y: auto;
+		}
+
+  &--xlarge {
+    @include query-min($screen-md) {
+      max-width: 960px;
+      padding: $spacing--large  $spacing--large;
+    }
+  }
+
+  &--large {
+    @include query-min($screen-md) {
+      max-width: 720px;
+      padding: $spacing--large  $spacing--large;
+    }
+  }
+
+  &--full {
+    @include query-min($screen-md) {
+      max-width: 1080px;
+      width: 85%;
+    }
+  }
+
+  &--closed {
+    display: none!important;
+  }
+
+  &--active {
+    display: block!important;
+  }
+
+  &--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__close {
+    position: absolute;
+    right: $spacing--medium - 6px;
+    top: $spacing--medium;
+    background: url("../images/icons/x.svg") center center no-repeat;
+    background-size: 24px;
+    overflow: hidden;
+    height: 24px;
+    width: 24px;
+    line-height: 2000px;
+    transition: all 125ms ease-in;
+
+    @include query-min($screen-md) {
+      right: $spacing--medium;
+    }
+  }
+
+	&__header {
+    display: block;
+		margin-bottom: $spacing--large;
+	}
+
+	&__content {
+		overflow: hidden;
+		display: block;
+	}
+
+	&__footer {
+    display: block;
+		margin-top: $spacing--large;
+	}
+
+  &__overlay {
+  	content: "";
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+    background: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)) rgba(0, 0, 0, 0.8);
+    z-index: 29;
+		display: none;
+		animation: fadeIn 300ms ease forwards;
+  }
+}

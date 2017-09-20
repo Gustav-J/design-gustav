@@ -1,0 +1,164 @@
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+/**
+ * Our layout system (note, not grid system) can be used to lay out all manner
+ * of things, from full page layouts to individual components.
+ */
+
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+    //		 border-left:1px solid red;
+	//		 border-right:1px solid red;	     
+        float: left;
+        position: relative;
+        width: percentage($i/12);
+        padding-left: $gutter/2;
+        padding-right: $gutter/2;
+
+    }
+}
+
+@include query-min($screen-sm) {
+
+    @for $i from 1 through 12 {
+        .col-#{$i}--sm  {
+    //		 border-left:1px solid red;
+	//		 border-right:1px solid red;	     
+            float: left;
+            position: relative;
+            width: percentage($i/12);
+	        padding-left: $gutter/2;
+	        padding-right: $gutter/2;
+        }
+    }
+}
+
+@include query-min($screen-md) {
+
+    @for $i from 1 through 12 {
+        .col-#{$i}--md  {
+    //		 border-left:1px solid red;
+	//		 border-right:1px solid red;	           
+            float: left;
+            position: relative;
+            width: percentage($i/12);
+	        padding-left: $gutter/2;
+	        padding-right: $gutter/2;
+        }
+    }
+}
+
+@include query-min($screen-lg) {
+
+    @for $i from 1 through 12 {
+        .col-#{$i}--lg  {
+    //		 border-left:1px solid red;
+	//		 border-right:1px solid red;	         
+            float: left;
+            position: relative;
+            width: percentage($i/12);
+            padding-left: $gutter/2;
+	        padding-right: $gutter/2;
+        }
+    }
+}
+
+@include query-min($screen-xl) {
+
+    @for $i from 1 through 12 {
+        .col-#{$i}--xl  {
+    //		 border-left:1px solid red;
+	//		 border-right:1px solid red;	           
+            float: left;
+            position: relative;
+            width: percentage($i/12);
+            padding-left: $gutter/2;
+	        padding-right: $gutter/2;
+        }
+    }
+}
+
+
+
+
+/*------------------------------------*\
+   Subdivisions
+\*------------------------------------*/
+/**/
+
+
+
+.col-12  .col-half, .col-12--md .col-half, .col-12--lg .col-half, .col-12--xl .col-half,
+.col-10  .col-half, .col-10--md .col-half, .col-10--lg .col-half, .col-10--xl .col-half,
+.col-8  .col-half, .col-8--md .col-half, .col-8--lg .col-half, .col-8--xl .col-half,
+.col-6  .col-half, .col-6--md .col-half, .col-6--lg .col-half, .col-6--xl .col-half,
+.col-4  .col-half, .col-4--md .col-half, .col-4--lg .col-half, .col-4--xl .col-half,
+{
+	@extend .col-6;	
+}
+
+
+
+.col-12  .col-third, .col-12--md .col-third, .col-12--lg .col-third, .col-12--xl .col-third,
+.col-9  .col-third, .col-9--md .col-third, .col-9--lg .col-third, .col-9--xl .col-third,
+.col-6  .col-third, .col-6--md .col-third, .col-6--lg .col-third, .col-6--xl .col-third,
+.col-3  .col-third, .col-3--md .col-third, .col-3--lg .col-third, .col-3--xl .col-third,
+{
+	@extend .col-4;	
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+    OFFSET
+\*------------------------------------*/
+/**
+ * Usage: col-offset-{1-11}
+ */
+@for $i from 1 through 11 {
+    .col-offset-#{$i} {
+        margin-left: percentage($i/12);
+    }
+}
+
+@include query-min($screen-md) {
+	.col-offset-0--md {
+		margin-left: 0;
+	}
+    @for $i from 1 through 11 {
+        .col-offset-#{$i}--md  {
+            margin-left: percentage($i/12);
+        }
+    }
+}
+
+@include query-min($screen-lg) {
+	.col-offset-0--lg {
+		margin-left: 0;
+	}
+    @for $i from 1 through 12 {
+        .col-offset-#{$i}--lg  {
+            margin-left: percentage($i/12);
+        }
+    }
+}
+
+@include query-min($screen-xl) {
+
+    @for $i from 1 through 11 {
+        .col-offset-#{$i}--xl  {
+            margin-left: percentage($i/12);
+        }
+    }
+}
+
+
+
+
+

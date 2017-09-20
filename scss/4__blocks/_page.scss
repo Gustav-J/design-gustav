@@ -1,0 +1,17 @@
+.page {
+	margin: 0 auto;
+	max-width: $grid-width;
+	min-width: 250px;
+
+	&--small {
+		max-width: $grid-small-width;
+	}
+
+	&--light {
+		background-color: $_gray--lighter;
+	}
+
+	&--full {
+		max-width: 100%;
+	}
+}

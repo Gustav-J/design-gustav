@@ -1,0 +1,49 @@
+.icon {
+	width: 20px;
+	height: 20px;
+	position: relative;
+
+	@include query-min($screen-lg) {
+		width: 24px;
+		height: 24px;
+	}
+
+	&--small {
+		width: 20px;
+		height: 20px;
+		top: 2px;
+	}
+
+	&--marg-right {
+		margin-right: $spacing--small;
+	}
+
+	&--positive {
+		stroke: $_green;
+	}
+
+	&--negative {
+		stroke: $_red;
+	}
+
+  &--disabled {
+		stroke: $_gray;
+	}
+
+	&--large {
+		max-width: 48px;
+		max-height: 48px;
+	}
+
+	&--primary {
+		fill: $_blue;
+	}
+
+	&--secondary {
+		fill: $_blue;
+	}
+
+	&--dark {
+		fill: $_gray--dark;
+	}
+}

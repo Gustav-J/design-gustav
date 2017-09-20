@@ -1,0 +1,15 @@
+.notifications {
+  &__number {
+    position: absolute;
+    @extend .h6;
+    top: -($spacing--small);
+    left: -($spacing--small);
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    display: block;
+    background-color: $_red;
+    text-align: center;
+  }
+}

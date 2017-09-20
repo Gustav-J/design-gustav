@@ -1,0 +1,44 @@
+.block {
+	display: block;
+	width: 100%;
+
+	+ .block {
+		margin-top: $spacing;
+	}
+
+	&--light {
+		background: $_white;
+	}
+
+	&--gray {
+		background: $_gray--lighter;
+	}
+
+	&__head {
+		margin-bottom: $spacing;
+		position: relative;
+		@include query-min($screen-md) {
+			//margin-right: $spacing;
+		}
+
+		span {
+			//background: $_white;
+			position: relative;
+			z-index: 1;
+      display: block;
+      //padding-bottom: $spacing--small;
+			//padding-right: $spacing--small;
+      //border-bottom: 2px solid $_gray--light;
+			@include query-min($screen-lg) {
+				//padding-right: $spacing;
+			}
+		}
+
+	}
+
+	&__content {
+		float: left;
+		width: 100%;
+		padding: $spacing;
+	}
+}

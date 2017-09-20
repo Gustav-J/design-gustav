@@ -1,0 +1,133 @@
+.hero {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+	background-color: $_black;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	padding: $spacing--xxlarge 0;
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: 0;
+	}
+
+	&--front {
+		height: 60vh;
+		min-height: 440px;
+		transition: background 1000ms ease-out 300ms;
+		background-image: url("../images/hero/hero-4.jpg");
+	}
+
+	&--product, &--portfolio {
+		height: 260px;
+		min-height: 260px;
+
+		@media (min-width: $screen-md) {
+			height: 400px;
+			min-height: 400px;
+		}
+	}
+
+	&--product {
+		background-image: url("../images/hero/hero-9.jpg");
+		@media (min-width: $screen-md) {
+			background-image: url("../images/hero/hero-9.jpg");
+		}
+	}
+
+	&--deals {
+		background-image: url("../images/hero/hero-5.jpg");
+		@media (min-width: $screen-md) {
+			background-image: url("../images/hero/hero-5.jpg");
+		}
+	}
+
+	&--image {
+		color: $_white;
+	}
+
+	&__slideshow {
+		position: absolute;
+		width: 100%;
+		display: block;
+
+		&-slide {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			animation-name: cf4FadeInOut;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+			animation-duration: 8;
+			animation-direction: alternate;
+		}
+	}
+
+
+	&__content {
+		display: block;
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 6;
+		width: 100%;
+
+		@media (min-width: $screen-md) {
+		}
+
+		&--bottom {
+			top: auto;
+			left: auto;
+			bottom: 0;
+			transform: translate(0%);
+			text-align: left;
+		}
+
+		h1 {
+			animation: fade-in ease-in-out 1s 0.5s both;
+			color: white;
+      margin-bottom: $spacing--xxsmall;
+      @media (min-width: $screen-md) {
+        margin-bottom: $spacing;
+      }
+		}
+    p {
+      color: white;
+    }
+
+    .card__tags-tag {
+      animation: fade-in ease-in-out 1s 0s both;
+
+    }
+
+		.button--primary {
+			animation: fade-in ease-in-out 1s 1s both;
+		}
+
+		.button--secondary {
+			animation: fade-in ease-in-out 1s 1.5s both;
+		}
+
+		.button {
+			margin-bottom: $spacing--small;
+
+			+ .button {
+				margin-left: $spacing--small;
+			}
+		}
+	}
+}

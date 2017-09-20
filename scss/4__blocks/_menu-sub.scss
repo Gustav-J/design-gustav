@@ -1,0 +1,17 @@
+.menu-sub {
+	display: block;
+	margin-top: $spacing--large;
+	&__item {
+		display: block;
+		padding: $spacing--small 0;	
+	}
+	&__link {
+		line-height: 1.5em;		
+		&:hover, &:focus {
+
+		}
+		&--current {
+			
+		}		
+	}
+}

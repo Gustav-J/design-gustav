@@ -1,0 +1,63 @@
+// Table
+table, .table {
+	text-align: left;
+	margin-bottom: $spacing;
+	width:auto;
+	&--fluid {
+		width:100%;
+	}
+	&__wrapper {
+		width:100%;	
+		_overflow: auto;		
+		overflow-y: auto;
+	}
+	thead {
+		border-bottom:$border-width solid #ccc;
+		th {
+			@extend .regular;
+		}
+	}
+	th {
+        padding: $spacing--small $spacing--small;		
+        padding-left: 0;        
+	}	
+	tfoot {
+		
+	}
+	tr {
+
+	}
+	
+	td {
+        padding: $spacing--small $spacing--small;	
+        padding-left: 0;
+        vertical-align: top;	
+        
+	}
+	&__sum {
+
+	}
+	&--collapse-on-mobile {
+		@include query-max($screen-md) {
+			display: block;
+			width:100%;
+		}		
+	}
+
+	&__row--collapse-on-mobile {
+		@include query-max($screen-md) {
+			display: block;
+			width:100%;
+		}		
+	}
+	&__cell--collapse-on-mobile {
+		@include query-max($screen-md) {
+			display: block;
+			width:100%;
+			position: relative;
+		}		
+	}
+	&__row--section	{
+
+	}
+}

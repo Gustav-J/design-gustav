@@ -1,0 +1,70 @@
+.blockquote {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding: 0;
+	background-color: $_gray--lighter;
+  margin-bottom: $spacing;
+
+	@include query-min($screen-lg) {
+		width: 100%;
+		padding: 0 0 100%;
+	}
+
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+	&--small {
+		padding: $spacing;
+		display: inline-block;
+		width: auto;
+	}
+
+	&__content {
+		position: relative;
+    padding: $spacing;
+
+		@include query-min($screen-md) {
+			padding: $spacing--large;
+		}
+
+		@include query-min($screen-lg) {
+			padding: $spacing--large;
+			position: absolute;
+		}
+
+		/*&:before{
+			  content: "\201C";
+				@extend .h1;
+				color: $_gray;
+				font-family: Georgia;
+
+			  position: absolute;
+			  left: 0;
+				top: 30px;
+				font-size: 80px;
+
+				@include query-min($screen-md) {
+					top: 5px;
+					font-size: 80px;
+				}
+			}*/
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+	}
+
+	blockquote {
+		margin-bottom: $spacing--large;
+
+		p {
+			@extend .h2;
+			font-family: $sans;
+			margin-bottom: $spacing;
+		}
+	}
+}

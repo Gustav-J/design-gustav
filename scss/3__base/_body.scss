@@ -1,0 +1,27 @@
+html {
+	height: 100%;
+}
+
+html, body {
+	font-family: $sans;
+	color: $color-text;
+	background: $_white;
+	font-size: 16px;
+	line-height: 24px;
+	@include query-min($screen-md) {
+		font-size: 18px;
+		line-height: 26px;
+	}
+
+  &.noscroll {
+    /* disable scrollbar on both x and y axis */
+    overflow: hidden;
+
+    /* disable scrollbar on x-axis only */
+    overflow-x: hidden;
+
+    /* disable scrollbar on y-axis only */
+    overflow-y: hidden;
+
+  }
+}

@@ -1,0 +1,15 @@
+.footer {
+	padding: $spacing--xxlarge 0;
+	float: left;
+	width: 100%;
+	position: relative;
+	background-color: $_gray--dark;
+	color: $_white;
+
+	&__ident {
+		@extend .header__ident;
+		/*margin: 0 auto;
+		display: block;*/
+		margin-bottom: $spacing--large;
+	}
+}

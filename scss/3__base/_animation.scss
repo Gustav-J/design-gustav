@@ -1,0 +1,150 @@
+.animation {
+	
+	
+  &__move {
+
+	  &--in {
+		  -webkit-animation: bounce 1s cubic-bezier(0,.43,.69,1);
+		  -webkit-animation-iteration-count: 1; 
+	  }
+  }
+	
+  // Fade in
+  &__emerge {
+      opacity: 0;
+      transition: all 0.20s ease; 
+      &--show {
+        opacity: 1;
+      }
+  }
+
+  // A fade in combined with downward motion
+  &__toggle {
+   	&--closed {
+  		@extend .animation__emerge;
+  		transform: translateY(-10px);
+  		transform-origin: top;
+   	}		
+  	&--open {
+      @extend .animation__emerge--show;
+  		transform: translateY(0px);	
+  		&:focus {
+  			outline: none;
+  		}
+  	}	
+  }
+
+  // A flash of backgroundcolor before it fades to none
+  &__flash {
+		&--in {
+		  -webkit-animation: keyframe-flash-in 1s cubic-bezier(0,.43,.69,1);
+		  -webkit-animation-iteration-count: 1;
+		}
+	}
+
+  // A fade in combined with downward motion
+  &__insertion {
+
+    &--closed {
+      opacity: 0;
+      transition: all 0.20s ease; 
+      transform: translateX(-20px);
+  //    transform: scaleY(0.8);   
+      transform-origin: top;
+
+      margin-left: -$gutter/2;
+      margin-right: -$gutter/2;
+
+      padding-left: $gutter/2;
+      padding-right: $gutter/2; 
+
+      padding-bottom: 1px;        
+    }   
+    &--open {
+      opacity: 1;
+      transform: translateX(0px); 
+      //@extend .animation__flash--in;   
+      &:focus {
+        outline: none;
+      }
+    } 
+  }
+
+  // A fade in combined with downward motion
+  &__insertion-right {
+
+    &--closed {
+      @extend .animation__insertion--closed;
+      //transform: translateX(-20px);
+    }   
+    &--open {
+      @extend .animation__insertion--open;
+    } 
+  }
+
+}
+
+@-webkit-keyframes keyframe-flash-in {
+    0% { background-color:none;}
+    10% { background-color:$color-secondary; color: black;}        
+    100% {background-color:none;}
+}
+
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  78% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  88% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px); }
+  90% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px); }
+  92% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  94% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px); }
+  96% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  98% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+            
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  78% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  88% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px); }
+  90% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px); }
+  92% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  94% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px); }
+  96% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  98% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }

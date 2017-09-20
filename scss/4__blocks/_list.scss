@@ -1,0 +1,46 @@
+// List style
+ol, ul, .list {
+    margin-bottom: $spacing--small;
+    font-size: 16px;
+    line-height: 24px;
+    @include query-min($screen-md) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    li {
+
+		strong {
+			font-weight: bold;
+    	}
+
+	}
+
+    &--horizontal {
+
+	    li {
+			display: inline-block;
+			margin: 0 $spacing--xxsmall $spacing--small;
+	    }
+    }
+
+    &--bullets {
+
+	    li {
+		    list-style-type: disc;
+        list-style-position: inside;
+		    margin: 0 $spacing--small $spacing--xsmall $spacing;
+
+			@include query-min($screen-xl) {
+			    margin: 0 $spacing--small $spacing--small 0;
+			}
+		}
+	}
+}
+
+ol {
+	li {
+		list-style: decimal;
+		list-style-position: inside;
+	}
+}
